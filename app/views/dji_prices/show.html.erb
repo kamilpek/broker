@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @dji_price.date %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @dji_price.open %>
+</p>
+
+<p>
+  <strong>High:</strong>
+  <%= @dji_price.high %>
+</p>
+
+<p>
+  <strong>Low:</strong>
+  <%= @dji_price.low %>
+</p>
+
+<p>
+  <strong>Close:</strong>
+  <%= @dji_price.close %>
+</p>
+
+<%= link_to 'Edit', edit_dji_price_path(@dji_price) %> |
+<%= link_to 'Back', dji_prices_path %>

@@ -1,0 +1,42 @@
+<%= form_with(model: dji_price, local: true) do |form| %>
+  <% if dji_price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dji_price.errors.count, "error") %> prohibited this dji_price from being saved:</h2>
+
+      <ul>
+      <% dji_price.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :dji_price_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open %>
+    <%= form.text_field :open, id: :dji_price_open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :high %>
+    <%= form.text_field :high, id: :dji_price_high %>
+  </div>
+
+  <div class="field">
+    <%= form.label :low %>
+    <%= form.text_field :low, id: :dji_price_low %>
+  </div>
+
+  <div class="field">
+    <%= form.label :close %>
+    <%= form.text_field :close, id: :dji_price_close %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

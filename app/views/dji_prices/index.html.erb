@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dji Prices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dji_prices.each do |dji_price| %>
+      <tr>
+        <td><%= dji_price.date %></td>
+        <td><%= dji_price.open %></td>
+        <td><%= dji_price.high %></td>
+        <td><%= dji_price.low %></td>
+        <td><%= dji_price.close %></td>
+        <td><%= link_to 'Show', dji_price %></td>
+        <td><%= link_to 'Edit', edit_dji_price_path(dji_price) %></td>
+        <td><%= link_to 'Destroy', dji_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dji Price', new_dji_price_path %>

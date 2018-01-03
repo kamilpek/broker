@@ -1,0 +1,2 @@
+class DjiPrice < ApplicationRecord
+end
