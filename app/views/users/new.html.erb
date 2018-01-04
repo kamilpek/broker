@@ -1,0 +1,25 @@
+<% content_for :title, "Dodawanie uzytkownika" %>
+<% content_for :menu, "admin" %>
+
+<div class="container jumbotron">
+
+<h4>Nowy użytkownik</h4><hr>
+
+<%= form_for User.new do |f| %>
+
+  <div class="form-group">
+    <label>Email</label>
+    <%= f.text_field :email, type:"text", autofocus: true, class:"form-control", placeholder: "email" %>
+  </div>
+
+  <%= f.hidden_field :password, :value => "startowe" %>
+  <%= f.hidden_field :password_confirmation, :value => "startowe" %>
+
+  <p>
+    <%= f.submit :Zatwierdź, class:"btn btn-sm btn-outline-success" %>
+    <%= link_to 'Lista użytkowników', admin_users_path, class:'btn btn-sm btn-outline-primary' %>
+  </p>
+
+<% end %>
+
+</div>

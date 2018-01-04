@@ -1,29 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="container jumbotron">
+  <h4>
+    Notowanie Dow Jones Industrial
+    <%= link_to 'Edycja', edit_dji_price_path(@dji_price), class:"btn btn-sm btn-outline-warning" %>
+    <%= link_to 'Lista notowań', dji_prices_path, class:"btn btn-sm btn-outline-primary" %>
+  </h4><hr>
 
-<p>
-  <strong>Date:</strong>
-  <%= @dji_price.date %>
-</p>
+  <p>Date: <strong><%= @dji_price.date %></strong></p>
+  <p>Open: <strong><%= @dji_price.open %></strong></p>
+  <p>High: <strong><%= @dji_price.high %></strong></p>
+  <p>Low: <strong><%= @dji_price.low %></strong></p>
+  <p>Close: <strong><%= @dji_price.close %></strong></p>
 
-<p>
-  <strong>Open:</strong>
-  <%= @dji_price.open %>
-</p>
-
-<p>
-  <strong>High:</strong>
-  <%= @dji_price.high %>
-</p>
-
-<p>
-  <strong>Low:</strong>
-  <%= @dji_price.low %>
-</p>
-
-<p>
-  <strong>Close:</strong>
-  <%= @dji_price.close %>
-</p>
-
-<%= link_to 'Edit', edit_dji_price_path(@dji_price) %> |
-<%= link_to 'Back', dji_prices_path %>
+</div>

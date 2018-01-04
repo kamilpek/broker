@@ -1,15 +1,28 @@
 Rails.application.routes.draw do
   get 'admin/main'
-
   get 'admin/users'
-
   get 'pages/home'
-
   get 'pages/about'
-
   get 'pages/stock'
 
   resources :dji_prices
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  scope "admin" do
+    resources :users do
+      member do
+        delete 'destroy'
+        get 'new'
+        post 'create'
+        get 'edit'
+        patch 'update'
+        get 'notes'
+        post 'grantadmin'
+        post 'resetpassword'
+      end
+    end
+  end
+
+  root 'pages#home'
+
 end

@@ -1,15 +1,4 @@
 <%= form_with(model: dji_price, local: true) do |form| %>
-  <% if dji_price.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dji_price.errors.count, "error") %> prohibited this dji_price from being saved:</h2>
-
-      <ul>
-      <% dji_price.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :date %>
@@ -37,6 +26,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Zatwierdź", class:"btn btn-sm btn-outline-success" %>
+    <%= link_to 'Lista notowań', dji_prices_path, class:"btn btn-sm btn-outline-primary" %>
   </div>
 <% end %>

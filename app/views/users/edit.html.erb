@@ -1,0 +1,19 @@
+<div class="container jumbotron">
+
+<h4>Edycja użytkownika</h4><hr>
+
+<%= form_for @user, :url => { :action => "update" } do |f| %>
+
+  <div class="form-group">
+    <label>Email</label>
+    <%= f.text_field :email, type:"text", autofocus: true, class:"form-control", placeholder: "email" %>
+  </div>
+
+  <p>
+    <%= f.submit :Zatwierdź, class:"btn btn-sm btn-outline-success" %>
+    <%= link_to 'Lista użytkowników', admin_users_path, class:'btn btn-sm btn-outline-primary' %>
+  </p>
+
+<% end %>
+
+</div>

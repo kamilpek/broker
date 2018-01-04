@@ -4,7 +4,7 @@ class DjiPricesController < ApplicationController
   # GET /dji_prices
   # GET /dji_prices.json
   def index
-    @dji_prices = DjiPrice.all
+    @dji_prices = DjiPrice.all.paginate(:page => params[:page], :per_page => 15)
   end
 
   # GET /dji_prices/1
@@ -28,7 +28,7 @@ class DjiPricesController < ApplicationController
 
     respond_to do |format|
       if @dji_price.save
-        format.html { redirect_to @dji_price, notice: 'Dji price was successfully created.' }
+        format.html { redirect_to @dji_price, notice: 'Dodano notowanie.' }
         format.json { render :show, status: :created, location: @dji_price }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DjiPricesController < ApplicationController
   def update
     respond_to do |format|
       if @dji_price.update(dji_price_params)
-        format.html { redirect_to @dji_price, notice: 'Dji price was successfully updated.' }
+        format.html { redirect_to @dji_price, notice: 'Zmieniono notowanie.' }
         format.json { render :show, status: :ok, location: @dji_price }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DjiPricesController < ApplicationController
   def destroy
     @dji_price.destroy
     respond_to do |format|
-      format.html { redirect_to dji_prices_url, notice: 'Dji price was successfully destroyed.' }
+      format.html { redirect_to dji_prices_url, notice: 'Usunięto notowanie.' }
       format.json { head :no_content }
     end
   end

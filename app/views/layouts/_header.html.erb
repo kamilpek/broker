@@ -1,0 +1,27 @@
+<br>
+<nav class="container navbar navbar-expand-lg navbar-light bg-light dontprint">
+    <%= link_to 'Broker', pages_home_path, :title => "Strona Główna", class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li><%= link_to 'Strona Główna', pages_home_path, :title => "Strona Główna", class:"nav-link" %></li>
+        <li><%= link_to 'Notowania', dji_prices_path, :title => "Notowania DJI", class:"nav-link" %></li>
+        <li><%= link_to 'About', pages_about_path, :title => "O projekcie", class:"nav-link" %></li>
+      </ul>
+      <ul class="navbar-nav float-right">
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <li><%= link_to 'Zaplecze', admin_main_path, :title => "Panel Administracyjny", class:"nav-link" %></li>
+          <% end %>
+            <li><%= link_to "Zalogowany jako #{current_user.email}", edit_user_registration_path, :title => "Zmiana hasła", class:"nav-link" %></li>
+            <li><%= link_to 'Wyloguj', destroy_user_session_path, :method => :delete, :title => "Wylogowanie ze systemu", class:"nav-link" %></li>
+          <% else %>
+            <li><%= link_to 'Zaloguj', new_user_session_path, :title => "Logowanie do systemu", class:"nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
+</nav>
+<br>
