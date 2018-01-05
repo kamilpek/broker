@@ -5,10 +5,10 @@
     <%= link_to 'Lista notowań', dji_prices_path, class:"btn btn-sm btn-outline-primary" %>
   </h4><hr>
 
-  <p>Date: <strong><%= @dji_price.date %></strong></p>
-  <p>Open: <strong><%= @dji_price.open %></strong></p>
-  <p>High: <strong><%= @dji_price.high %></strong></p>
-  <p>Low: <strong><%= @dji_price.low %></strong></p>
-  <p>Close: <strong><%= @dji_price.close %></strong></p>
+  <p>Date: <strong><%= (@dji_price.date) %></strong></p>
+  <p>Open: <strong><%= number_with_delimiter(@dji_price.open) %></strong></p>
+  <p>High: <strong><%= number_with_delimiter(@dji_price.high) %></strong></p>
+  <p>Low: <strong><%= number_with_delimiter(@dji_price.low) %></strong></p>
+  <p>Close: <strong><%= number_with_delimiter(@dji_price.close) %></strong></p>
 
 </div>

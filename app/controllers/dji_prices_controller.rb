@@ -4,7 +4,7 @@ class DjiPricesController < ApplicationController
   # GET /dji_prices
   # GET /dji_prices.json
   def index
-    @dji_prices = DjiPrice.all.paginate(:page => params[:page], :per_page => 15)
+    @dji_prices = DjiPrice.all.order("date desc").paginate(:page => params[:page], :per_page => 15)
   end
 
   # GET /dji_prices/1

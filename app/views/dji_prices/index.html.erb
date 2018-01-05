@@ -1,8 +1,8 @@
 <div class="container jumbotron">
   <h4>
-    Notowania Dow Jones Industrial
-    <%= link_to 'Nowe Notowanie', new_dji_price_path, class:"btn btn-sm btn-outline-success" %>
-  </h4><hr>
+    Notowania Dow Jones Industrial Average
+    <%= link_to 'Nowe Notowanie', new_dji_price_path, class:"btn btn-sm btn-outline-success" if current_user.try(:admin) %>
+  </h4>
 
   <div class="table-responsive" align="center">
     <table class="table table-striped">
@@ -19,15 +19,15 @@
 
       <tbody>
         <% @dji_prices.each do |dji_price| %>
-          <tr>
+          <tr align="center">
             <td><%= dji_price.date %></td>
-            <td><%= dji_price.open %></td>
-            <td><%= dji_price.high %></td>
-            <td><%= dji_price.low %></td>
-            <td><%= dji_price.close %></td>
-            <td><%= link_to 'Przejdź', dji_price, class:"btn btn-xs btn-danger" %></td>
-            <td><%= link_to 'Edytuj', edit_dji_price_path(dji_price), class:"btn btn-xs btn-danger" %></td>
-            <td><%= link_to 'Usuń', dji_price, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-xs btn-danger" %></td>
+            <td><%= number_with_delimiter(dji_price.open) %></td>
+            <td><%= number_with_delimiter(dji_price.high) %></td>
+            <td><%= number_with_delimiter(dji_price.low) %></td>
+            <td><%= number_with_delimiter(dji_price.close) %></td>
+            <td><%= link_to 'Przejdź', dji_price, class:"btn btn-xs btn-success" %>
+                <%= link_to 'Edytuj', edit_dji_price_path(dji_price), class:"btn btn-xs btn-warning" if current_user.try(:admin) %>
+                <%= link_to 'Usuń', dji_price, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-xs btn-danger" if current_user.try(:admin) %></td>
           </tr>
         <% end %>
       </tbody>

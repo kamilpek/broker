@@ -1,3 +1,13 @@
 <div class="container jumbotron">
-  <h4>Aktualna sytuacja</h4><hr>
+  <h4>Prognozowanie Dow Jones Industrial Average</h4><hr>
+  <div class="alert alert-warning" role="alert">
+    Stan na dzień <%= @dji_price.date %>:
+    Open <%= number_with_delimiter(@dji_price.open) %>;
+    High <%= number_with_delimiter(@dji_price.high) %>;
+    Low <%= number_with_delimiter(@dji_price.low) %>;
+    Close <%= number_with_delimiter(@dji_price.close) %>.
+  </div>
+  <div class="alert alert-primary" role="alert">
+    Prognoza na dzień następny:
+  </div>
 </div>

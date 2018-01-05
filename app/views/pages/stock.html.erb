@@ -1,2 +1,11 @@
-<h1>Pages#stock</h1>
-<p>Find me in app/views/pages/stock.html.erb</p>
+<div class="container jumbotron">
+  <h4>Wykresy notowań Dow Jones Industrial Average</h4><hr>
+  <h5>Wykres ostatnich 14 dni</h5><hr>
+  <%= area_chart @dji_prices.group_by_day(:date, last: 14, series: false).maximum(:close), xtitle: "Date", ytitle: "Close" %>
+  <br>
+  <h5>Wykres ostatnich 365 dni</h5><hr>
+  <%= area_chart @dji_prices.group_by_day(:date, last: 365, series: false).maximum(:close), xtitle: "Date", ytitle: "Close" %>
+  <br>
+  <h5>Wykres od <%= @dji_prices.pluck(:date).first.strftime("%d.%m.%Y") %></h5><hr>
+  <%= area_chart @dji_prices.group_by_day(:date, series: false).maximum(:close), xtitle: "Date", ytitle: "Close" %>
+</div>

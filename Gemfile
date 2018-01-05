@@ -59,4 +59,6 @@ gem 'devise', '~> 4.3' # users
 gem 'bootstrap', '~> 4.0.0.beta3' # views
 gem 'will_paginate', '~> 3.1', '>= 3.1.6' # pagination
 gem 'will_paginate-bootstrap4', '~> 0.1.3' # pagination
-gem 'progress_bar', '~> 1.1' # pasek postępu
+gem 'progress_bar', '~> 1.1' # progress bar
+gem 'chartkick', '~> 2.2', '>= 2.2.5' # charts
+gem 'groupdate', '~> 3.2' # charts
