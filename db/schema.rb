@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103183546) do
+ActiveRecord::Schema.define(version: 20180106213500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dji_forecasts", force: :cascade do |t|
+    t.date "date", array: true
+    t.float "close_arima", array: true
+    t.float "close_nnet", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dji_prices", force: :cascade do |t|
     t.date "date"

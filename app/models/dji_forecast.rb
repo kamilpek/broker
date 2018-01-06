@@ -1,0 +1,2 @@
+class DjiForecast < ApplicationRecord
+end

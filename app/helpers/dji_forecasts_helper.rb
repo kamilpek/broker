@@ -1,0 +1,2 @@
+module DjiForecastsHelper
+end

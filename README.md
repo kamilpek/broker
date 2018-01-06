@@ -16,4 +16,4 @@ Prognozowanie indeksu Dow Jones Industrial z użyciem modelu ARIMA, sieci neuron
 
 ---
 
-* v0.0.2 (05.01.2018)
+* v0.0.3 (06.01.2018)

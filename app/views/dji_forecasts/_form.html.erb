@@ -1,0 +1,22 @@
+<%= form_with(model: dji_forecast, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :dji_forecast_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :close_arima %>
+    <%= form.text_field :close_arima, id: :dji_forecast_close_arima %>
+  </div>
+
+  <div class="field">
+    <%= form.label :close_nnet %>
+    <%= form.text_field :close_nnet, id: :dji_forecast_close_nnet %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Zatwierdź", class:"btn btn-sm btn-outline-success" %>
+    <%= link_to 'Lista Prognoz', dji_forecasts_path, class:"btn btn-sm btn-outline-primary" %>
+  </div>
+<% end %>

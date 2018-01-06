@@ -1,0 +1,12 @@
+<div class="container jumbotron">
+  <h4>
+    Prognoza Dow Jones Industrial
+    <%= link_to 'Edycja', edit_dji_forecast_path(@dji_forecast), class:"btn btn-sm btn-outline-warning" %>
+    <%= link_to 'Lista notowań', dji_forecasts_path, class:"btn btn-sm btn-outline-primary" %>
+  </h4><hr>
+
+  <p>Date: <strong><%= (@dji_forecast.date) %></strong></p>
+  <p>Close ARIMA: <strong><%= @dji_forecast.close_arima %></strong></p>
+  <p>Close Nerual Networks:  <strong><%= @dji_forecast.close_nnet %></strong></p>
+
+</div>

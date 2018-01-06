@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'pages/stock'
 
   resources :dji_prices
+  resources :dji_forecasts
   devise_for :users
 
   scope "admin" do
