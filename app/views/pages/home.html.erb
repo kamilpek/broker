@@ -8,6 +8,18 @@
     Close <%= number_with_delimiter(@dji_price.close) %>.
   </div>
   <div class="alert alert-primary" role="alert">
-    Prognoza na dzień następny:
+    Prognoza na dzień: <%= @dji_price.date+1 %>:
+    Close [arima] <%= number_with_delimiter(@dji_forecast.close_arima[0]) %>,
+    Close [nnetar] <%= number_with_delimiter(@dji_forecast.close_nnet[0]) %>.
+  </div>
+  <div class="alert alert-primary" role="alert">
+    Prognoza na dzień: <%= @dji_price.date+32 %>:
+    Close [arima] <%= number_with_delimiter(@dji_forecast.close_arima[32]) %>,
+    Close [nnetar] <%= number_with_delimiter(@dji_forecast.close_nnet[32]) %>.
+  </div>
+  <div class="alert alert-primary" role="alert">
+    Prognoza na dzień: <%= @dji_price.date+366 %>:
+    Close [arima] <%= number_with_delimiter(@dji_forecast.close_arima[366]) %>,
+    Close [nnetar] <%= number_with_delimiter(@dji_forecast.close_nnet[366]) %>.
   </div>
 </div>

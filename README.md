@@ -1,7 +1,7 @@
 ### broker
 
 ### Preface
-Dow Jones Industrial forecast with using ARIMA, neural networks and natural language processing.
+Dow Jones Industrial forecast with using ARIMA and neural networks.
 
 ### Author
 * [Kamil Pek](https://github.com/kamilpek)
@@ -9,11 +9,11 @@ Dow Jones Industrial forecast with using ARIMA, neural networks and natural lang
 ---
 
 ### Wstęp
-Prognozowanie indeksu Dow Jones Industrial z użyciem modelu ARIMA, sieci neuronowych oraz przetwarzania języka naturlanego.
+Prognozowanie indeksu Dow Jones Industrial z użyciem modelu ARIMA i sieci neuronowych.
 
 ### Autor
 * [Kamil Pek](https://github.com/kamilpek)
 
 ---
 
-* v0.0.3 (06.01.2018)
+* v0.0.4 (11.01.2018)
