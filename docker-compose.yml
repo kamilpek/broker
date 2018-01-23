@@ -1,0 +1,19 @@
+version: "2"
+
+networks:
+  default:
+    external:
+      name: kps
+
+services:
+  app:
+    env_file: .env
+    build: .
+    command: bundle exec rails s -e production -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/usr/src/app
+    mem_limit: 512m
+    ports:
+      - "8084:3000"
+    networks:
+      - default

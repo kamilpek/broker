@@ -1,0 +1,2 @@
+class DjiNlp < ApplicationRecord
+end

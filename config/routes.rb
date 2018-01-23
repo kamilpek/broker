@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :dji_prices
   resources :dji_forecasts
+  resources :dji_nlps
   devise_for :users
 
   scope "admin" do
@@ -20,6 +21,16 @@ Rails.application.routes.draw do
         get 'notes'
         post 'grantadmin'
         post 'resetpassword'
+      end
+    end
+  end
+
+  scope "pages" do
+    resources :pages do
+      member do
+        get 'import_dji'
+        get 'forecast_dji'
+        get 'nlp_dji'
       end
     end
   end

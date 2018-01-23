@@ -1,0 +1,27 @@
+<%= form_with(model: dji_nlp, local: true) do |form| %>
+  <% if dji_nlp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dji_nlp.errors.count, "error") %> prohibited this dji_nlp from being saved:</h2>
+
+      <ul>
+      <% dji_nlp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :result %>
+    <%= form.text_field :result, id: :dji_nlp_result %>
+  </div>
+
+  <div class="field">
+    <%= form.label :result_int %>
+    <%= form.number_field :result_int, id: :dji_nlp_result_int %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106213500) do
+ActiveRecord::Schema.define(version: 20180123163044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20180106213500) do
     t.date "date", array: true
     t.float "close_arima", array: true
     t.float "close_nnet", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dji_nlps", force: :cascade do |t|
+    t.string "result"
+    t.integer "result_int"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

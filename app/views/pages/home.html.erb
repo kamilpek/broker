@@ -1,25 +1,47 @@
 <div class="container jumbotron">
   <h4>Prognozowanie Dow Jones Industrial Average</h4><hr>
+  <h5>
+    Stan aktualny
+    <%= link_to "Odśwież", import_dji_page_path(1), class:"btn btn-sm btn-outline-success" %>
+  </h5><hr>
+  <% if @dji_price %>
   <div class="alert alert-warning" role="alert">
-    Stan na dzień <%= @dji_price.date %>:
-    Open <%= number_with_delimiter(@dji_price.open) %>;
-    High <%= number_with_delimiter(@dji_price.high) %>;
-    Low <%= number_with_delimiter(@dji_price.low) %>;
-    Close <%= number_with_delimiter(@dji_price.close) %>.
+    Stan na dzień <strong><%= @dji_price.date %></strong>:
+    Open <strong><%= number_with_delimiter(@dji_price.open) %></strong>;
+    High <strong><%= number_with_delimiter(@dji_price.high) %></strong>;
+    Low <strong><%= number_with_delimiter(@dji_price.low) %></strong>;
+    Close <strong><%= number_with_delimiter(@dji_price.close) %></strong>.
+  </div>
+  <% end %>
+  <h5>
+    Prognoza
+    <%= link_to "Odśwież", forecast_dji_page_path(1), class:"btn btn-sm btn-outline-success" %>
+  </h5><hr>
+  <% if @dji_forecast %>
+  <div class="alert alert-primary" role="alert">
+    Prognoza na dzień: <strong><%= @dji_price.date+1 %></strong>:
+    Close [arima] <strong><%= number_with_delimiter(@dji_forecast.close_arima[0]) %></strong>,
+    Close [nnetar] <strong><%= number_with_delimiter(@dji_forecast.close_nnet[0]) %></strong>.
   </div>
   <div class="alert alert-primary" role="alert">
-    Prognoza na dzień: <%= @dji_price.date+1 %>:
-    Close [arima] <%= number_with_delimiter(@dji_forecast.close_arima[0]) %>,
-    Close [nnetar] <%= number_with_delimiter(@dji_forecast.close_nnet[0]) %>.
+    Prognoza na dzień: <strong><%= @dji_price.date+32 %></strong>:
+    Close [arima] <strong><%= number_with_delimiter(@dji_forecast.close_arima[32]) %></strong>,
+    Close [nnetar] <strong><%= number_with_delimiter(@dji_forecast.close_nnet[32]) %></strong>.
   </div>
   <div class="alert alert-primary" role="alert">
-    Prognoza na dzień: <%= @dji_price.date+32 %>:
-    Close [arima] <%= number_with_delimiter(@dji_forecast.close_arima[32]) %>,
-    Close [nnetar] <%= number_with_delimiter(@dji_forecast.close_nnet[32]) %>.
+    Prognoza na dzień: <strong><%= @dji_price.date+366 %></strong>:
+    Close [arima] <strong><%= number_with_delimiter(@dji_forecast.close_arima[366]) %></strong>,
+    Close [nnetar] <strong><%= number_with_delimiter(@dji_forecast.close_nnet[366]) %></strong>.
   </div>
-  <div class="alert alert-primary" role="alert">
-    Prognoza na dzień: <%= @dji_price.date+366 %>:
-    Close [arima] <%= number_with_delimiter(@dji_forecast.close_arima[366]) %>,
-    Close [nnetar] <%= number_with_delimiter(@dji_forecast.close_nnet[366]) %>.
+  <% end %>
+  <h5>
+    Analiza wiadomości
+    <%= link_to "Odśwież", nlp_dji_page_path(1), class:"btn btn-sm btn-outline-success" %>
+  </h5><hr>
+  <% if @dji_nlp %>
+  <div class="alert alert-info" role="alert">
+    Analiza wiadomości z okolic dnia: <strong><%= @dji_nlp.created_at.strftime("%d.%m.%Y") %></strong>:
+    Wynik analizy: <strong><%= get_nlp(@dji_nlp.result_int) %></strong>
   </div>
+  <% end %>
 </div>

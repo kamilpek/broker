@@ -1,0 +1,30 @@
+<div class="container jumbotron">
+
+  <h4>
+    Lista wyników
+    <%= link_to 'Nowy wynik', new_dji_nlp_path, class:"btn btn-sm btn-outline-success" %>
+  </h4><hr>
+
+  <div class="table-responsive" align="center">
+    <table class="table table-striped">
+      <thead class="thead">
+        <tr align="center">
+          <th>Wynik</th>
+          <th>Data</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @dji_nlps.each do |dji_nlp| %>
+          <tr align="center">
+            <td><%= get_result(dji_nlp.result_int) %></td>
+            <td><%= dji_nlp.created_at.strftime("%d-%m-%Y") %></td>
+            <td><%= link_to 'Przejdź', dji_nlp, class:"btn btn-xs btn-outline-success" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <p><%= will_paginate @dji_nlps, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %></p>
+</div>
