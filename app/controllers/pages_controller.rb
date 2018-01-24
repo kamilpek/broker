@@ -27,7 +27,7 @@ class PagesController < ApplicationController
           :high => row['High'],
           :low => row['Low'],
           :close => row['Close'])
-        puts "#{row['Date']} create. \n"
+        # puts "#{row['Date']} create. \n"
       end
     end
     redirect_to root_path, notice: 'Pobrano rekordy DJI.'
@@ -53,7 +53,7 @@ class PagesController < ApplicationController
       :result => nlp_result,
       :result_int => nlp_result_int,
     )
-    redirect_to root_path, notice: "Przeprowadzono analizę wiadomości dla DJI. #{nlp}"
+    redirect_to root_path, notice: "Przeprowadzono analizę wiadomości dla DJI."
   end
 
 end

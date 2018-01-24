@@ -2,15 +2,14 @@
 
   <h4>
     Wynik analizy
-    <%= link_to 'Edytuj', edit_dji_nlp_path(@dji_nlp), class:"btn btn-sm btn-outline-warning" %>
-    <%= link_to 'Usuń', @dji_nlp, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-sm btn-outline-danger" %>
+    <%= link_to 'Edytuj', edit_dji_nlp_path(@dji_nlp), class:"btn btn-sm btn-outline-warning" if current_user %>
+    <%= link_to 'Usuń', @dji_nlp, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-sm btn-outline-danger" if current_user %>
     <%= link_to 'Lista analiz', dji_nlps_path, class:"btn btn-sm btn-outline-primary" %>
   </h4><hr>
 
   <div>
     <p class="lead">Wynik: <%= get_result(@dji_nlp.result_int) %></p>
-    <p class="lead">Wynik: <%= @dji_nlp.result %></p>
-    <p class="lead">Data: <%= @dji_nlp.created_at.strftime("%d-%m-%Y") %></p>
+    <p class="lead">Data: <%= @dji_nlp.created_at.strftime("%d.%m.%Y") %></p>
   </div>
 
 </div>

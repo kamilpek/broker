@@ -84,11 +84,11 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :department_id, :role_id, :branch_id, :ceo, :proxy, :absence, :replacement, :division, :document_role_id, :division, :spec_role_id)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
   def user_params_edit
-    params.require(:user).permit(:first_name, :last_name, :email, :department_id, :role_id, :branch_id, :document_role_id, :division, :spec_role_id, :sign_in_count, :proxy, :absence, :replacement)
+    params.require(:user).permit(:email)
   end
 
   def user_params_notes

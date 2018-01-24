@@ -1,7 +1,7 @@
 <div class="container jumbotron">
   <h4>
     Notowanie Dow Jones Industrial
-    <%= link_to 'Edycja', edit_dji_price_path(@dji_price), class:"btn btn-sm btn-outline-warning" %>
+    <%= link_to 'Edycja', edit_dji_price_path(@dji_price), class:"btn btn-sm btn-outline-warning" if current_user %>
     <%= link_to 'Lista notowań', dji_prices_path, class:"btn btn-sm btn-outline-primary" %>
   </h4><hr>
 

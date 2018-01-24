@@ -2,7 +2,7 @@
   <h4>Prognozowanie Dow Jones Industrial Average</h4><hr>
   <h5>
     Stan aktualny
-    <%= link_to "Odśwież", import_dji_page_path(1), class:"btn btn-sm btn-outline-success" %>
+    <%= link_to "Odśwież", import_dji_page_path(1), class:"btn btn-sm btn-outline-success" if current_user %>
   </h5><hr>
   <% if @dji_price %>
   <div class="alert alert-warning" role="alert">
@@ -15,7 +15,7 @@
   <% end %>
   <h5>
     Prognoza
-    <%= link_to "Odśwież", forecast_dji_page_path(1), class:"btn btn-sm btn-outline-success" %>
+    <%= link_to "Odśwież", forecast_dji_page_path(1), class:"btn btn-sm btn-outline-success" if current_user %>
   </h5><hr>
   <% if @dji_forecast %>
   <div class="alert alert-primary" role="alert">
@@ -36,7 +36,7 @@
   <% end %>
   <h5>
     Analiza wiadomości
-    <%= link_to "Odśwież", nlp_dji_page_path(1), class:"btn btn-sm btn-outline-success" %>
+    <%= link_to "Odśwież", nlp_dji_page_path(1), class:"btn btn-sm btn-outline-success" if current_user %>
   </h5><hr>
   <% if @dji_nlp %>
   <div class="alert alert-info" role="alert">

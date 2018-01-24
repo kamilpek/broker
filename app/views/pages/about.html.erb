@@ -2,7 +2,24 @@
   <div class="alert alert-primary" role="alert">
     <h4 class="alert-heading">O projekcie</h4><hr>
     <p>Prognozowanie indeksu Dow Jones Industrial Average z użyciem modelu ARIMA, sieci neuronowych oraz przetwarzania języka naturlanego.</p>
+    <p align="justify">
+      Idea projektu przewiduje stowrzenie serwisu wspomagającego podejmowanie decyzji podczas inwestowania na giełdzie. Przedmiotem projektu
+      stał się indeks akcji Dow Jones Industrial Average, jest to jeden
+      z najważniejszych indeksów akcji spółek notowanych na Giełdzie Papierów Wartościowych w Nowym Jorku (New York Stock Exchange) i NASDAQ.
+      Indeks ten został stworzony przez Charlesa Dowa i statystyka Edwarda Jonesa. Indeks Dow Jones jest najstarszym działającym indeksem akcji
+      w Stanach Zjednoczonych. Obecnie składa się on z 30 największych amerykańskich przedsiębiorstw
+      <a href="https://pl.wikipedia.org/wiki/Dow_Jones_Industrial_Average">[wikipedia]</a>.
+      Rekordy indeksu pobierane są z portalu <a href="https://stooq.com/">stooq.com</a> w postaci pliku csv,
+      następnie trafiają do bazy danych PostgreSQL, ta operacja wykonywana jest przez skrypt w języku Ruby.
+      W celu prognozy z użyciem modelu ARIMA i sieci neuronowych użyto takie paczki jak "forecast", "tseries" i "lubridate" oraz środowiska R,
+      każdorazowa prognoza trafia do bazy danych i jej wyniki prezentowane są na stronie web. Dodatkowo przeprowadzana jest analiza najnowszych
+      wiadomości dotyczących wspomaniego indeksu giełdowego. Wiadomości pobierane są ze stron
+      <a href="https://www.marketwatch.com/investing/index/djia/news">www.marketwatch.com</a> oraz
+      <a href="https://www.cnbc.com/quotes/?symbol=.DJI">www.cnbc.com</a> następnie za pomocą paczek "rvest", "dplyr", "stringr", "tm",
+      "SentimentAnalysis" i środowiska R przeprowadzana jest analiza artykułów pod kątem nastrojów wyrażanych w treści.
+      Analiza zapisywana jest w bazie. Warstwa prezentacji pobieranych i opracowywanych danych wykonan została za pomocą frameworku Ruby On Rails.
+    </p>
     <hr>
-    <p class="mb-0">Kamil Pek [231050] – v0.0.5 (23.01.2018)</p>
+    <p class="mb-0">Kamil Pek [231050] – v0.1.0 (24.01.2018)</p>
   </div>
 </div>

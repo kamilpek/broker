@@ -10,7 +10,7 @@ task :create_user => :environment do
 end
 
 def build_user
-  print "email: "
+  print "Email: "
   email = STDIN.gets.chomp
   print "Password: "
   password = STDIN.noecho(&:gets).chomp

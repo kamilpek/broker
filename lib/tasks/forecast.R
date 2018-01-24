@@ -1,17 +1,13 @@
 # forecast
 # biblioteki
-suppressMessages(install.packages("forecast", repos = "http://cran.us.r-project.org"))
-suppressMessages(install.packages("tseries", repos = "http://cran.us.r-project.org"))
-suppressMessages(install.packages("RPostgreSQL", repos = "http://cran.us.r-project.org"))
-suppressMessages(install.packages("lubridate", repos = "http://cran.us.r-project.org"))
-#
 suppressMessages(library("forecast"))
 suppressMessages(library("tseries"))
 suppressMessages(library("RPostgreSQL"))
 suppressMessages(library("lubridate"))
 # baza
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, user= "majster", password="System32", dbname = "broker_development")
+#con <- dbConnect(drv, user= "majster", password="System32", dbname = "broker_development")
+con <- dbConnect(drv, dbname = "broker_production")
 dji.prices <- dbGetQuery(con, "select * from dji_prices")
 dbdisc <- dbDisconnect(con)
 # dane
