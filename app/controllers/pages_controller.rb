@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     csv = CSV.parse(file, :headers => true)
     csv.each do |row|
       if row['Date'].to_date <= @last_date
-        puts "No new records."
+        # puts "No new records."
       else
         DjiPrice.create(
           :date => row['Date'],
@@ -34,7 +34,8 @@ class PagesController < ApplicationController
   end
 
   def forecast_dji
-    forecast = `Rscript lib/tasks/forecast.R`
+    #forecast = `Rscript lib/tasks/forecast.R`
+    forecast = `Rscript /root/broker/lib/tasks/forecast.R`
     csv = CSV.parse(forecast, :headers => true, :col_sep => ' ')
     DjiForecast.create(
       :date => csv['date'],
@@ -45,7 +46,8 @@ class PagesController < ApplicationController
   end
 
   def nlp_dji
-    nlp = `Rscript lib/tasks/nlp.R`
+    # nlp = `Rscript lib/tasks/nlp.R`
+    nlp = `Rscript /root/broker/lib/tasks/nlp.R`
     nlp_result = nlp[4..-2]
     nlp_result_int = 1 if nlp_result == "positive"
     nlp_result_int = 2 if nlp_result == "negative"
