@@ -2,13 +2,14 @@
   <h4>
     Notowanie Dow Jones Industrial
     <%= link_to 'Edycja', edit_dji_price_path(@dji_price), class:"btn btn-sm btn-outline-warning" if current_user %>
+    <%= link_to 'Usuń', @dji_price, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-sm btn-outline-danger" if current_user.try(:admin) %>
     <%= link_to 'Lista notowań', dji_prices_path, class:"btn btn-sm btn-outline-primary" %>
   </h4><hr>
 
-  <p>Date: <strong><%= (@dji_price.date) %></strong></p>
-  <p>Open: <strong><%= number_with_delimiter(@dji_price.open) %></strong></p>
-  <p>High: <strong><%= number_with_delimiter(@dji_price.high) %></strong></p>
-  <p>Low: <strong><%= number_with_delimiter(@dji_price.low) %></strong></p>
-  <p>Close: <strong><%= number_with_delimiter(@dji_price.close) %></strong></p>
+  <p class="lead">Date: <%= (@dji_price.date) %></p>
+  <p class="lead">Open: <%= number_with_delimiter(@dji_price.open) %></p>
+  <p class="lead">High: <%= number_with_delimiter(@dji_price.high) %></p>
+  <p class="lead">Low: <%= number_with_delimiter(@dji_price.low) %></p>
+  <p class="lead">Close: <%= number_with_delimiter(@dji_price.close) %></p>
 
 </div>

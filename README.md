@@ -22,4 +22,4 @@ Analiza zapisywana jest w bazie. Warstwa prezentacji pobieranych i opracowywanyc
 * [Kamil Pek](https://github.com/kamilpek)
 
 ### Wersja
-* v0.1.1 (25.01.2018)
+* v0.1.2 (26.01.2018)

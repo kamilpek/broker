@@ -2,6 +2,7 @@
   <h4>
     Prognoza Dow Jones Industrial z dnia <%= @dji_forecast.created_at.strftime("%d.%m.%Y") %>
     <%= link_to 'Edycja', edit_dji_forecast_path(@dji_forecast), class:"btn btn-sm btn-outline-warning" if current_user %>
+    <%= link_to 'Usuń', @dji_forecast, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-sm btn-outline-danger" if current_user.try(:admin) %>
     <%= link_to 'Lista prognoz', dji_forecasts_path, class:"btn btn-sm btn-outline-primary" %>
   </h4><hr>
 

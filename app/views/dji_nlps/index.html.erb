@@ -20,7 +20,9 @@
           <tr align="center">
             <td><%= get_result(dji_nlp.result_int) %></td>
             <td><%= dji_nlp.created_at.strftime("%d-%m-%Y") %></td>
-            <td><%= link_to 'Przejdź', dji_nlp, class:"btn btn-xs btn-success" %></td>
+            <td><%= link_to 'Przejdź', dji_nlp, class:"btn btn-xs btn-success" %>
+                <%= link_to 'Edytuj', edit_dji_nlp_path(dji_nlp), class:"btn btn-xs btn-warning" if current_user.try(:admin) %>
+                <%= link_to 'Usuń', dji_nlp, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:"btn btn-xs btn-danger" if current_user.try(:admin) %></td>
           </tr>
         <% end %>
       </tbody>

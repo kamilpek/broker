@@ -40,8 +40,8 @@
   </h5><hr>
   <% if @dji_nlp %>
   <div class="alert alert-info" role="alert">
-    Analiza wiadomości z okolic dnia: <strong><%= @dji_nlp.created_at.strftime("%d.%m.%Y") %></strong>:
-    Wynik analizy: <strong><%= get_nlp(@dji_nlp.result_int) %></strong>
+    Wynik analizy wiadomości z okolic dnia: <strong><%= @dji_nlp.created_at.strftime("%d.%m.%Y") %></strong>:
+    <strong><%= get_nlp(@dji_nlp.result_int) %></strong>
   </div>
   <% end %>
 </div>
